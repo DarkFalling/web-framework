@@ -7,6 +7,7 @@ import { LoginControl } from "./loginControl";
 import { WarningBanner } from "./warningBanner";
 import { EssayForm } from "./essayForm";
 import { Product, FilterableProductTable } from "./filterableProductTable";
+import "./app.scss";
 
 export class App extends React.Component {
     galleryItems: Array<JSX.Element>;
@@ -39,13 +40,8 @@ export class App extends React.Component {
 
 class Gallery extends React.Component<{ items: Array<JSX.Element> }> {
     render() {
-        let s: CSSProperties = {
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",            
-        };
         return (
-            <div style={s}>
+            <div className="contaner-row-wrap">
                 {this.props.items.map((item, index) => <GalleryItem key={index}>{item}</GalleryItem>)}
             </div>
         );

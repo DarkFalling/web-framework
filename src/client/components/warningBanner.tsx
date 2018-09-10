@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./warningBanner.scss";
 
 export class WarningBanner extends React.Component<{ warning?: string }, {}> {
     render() {
