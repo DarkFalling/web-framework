@@ -4,6 +4,19 @@ const common = require("./webpack.common.config");
 const merge = require("webpack-merge");
 module.exports = merge(common, {
     entry: ["webpack-hot-middleware/client"],
+    module: {
+        rules: [
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    "style-loader", // creates style nodes from JS strings
+                    "css-loader", // translates CSS into CommonJS
+                    //'postcss-loader',
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
+            },
+        ]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
