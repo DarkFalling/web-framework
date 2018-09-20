@@ -45,7 +45,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(["../bin/app"], { verbose: true, allowExternal: true }),
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'Web Framework',
             filename: "index.html",
             template: "./src/client/index.html"
         })
