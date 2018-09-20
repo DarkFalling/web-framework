@@ -5,7 +5,8 @@ const path = require("path");
 module.exports = {
     entry: ["./src/client/index.tsx"],
     output: {
-        filename: "bundle.js",
+        filename: "[name].[hash].js",
+        chunkFilename: '[name].chunk.[hash].js',
         path: path.resolve(__dirname, "../bin/app"),
         publicPath: '/'
     },
@@ -41,7 +42,24 @@ module.exports = {
             template: "./src/client/index.html"
         })
     ],
-
+    optimization: {
+        /*
+        splitChunks: {
+            chunks: 'all'
+        },*/
+        //https://webpack.js.org/guides/caching/#extracting-boilerplate
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        },
+        //https://webpack.js.org/guides/caching/#extracting-boilerplate
+        runtimeChunk: 'single',
+    },
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our

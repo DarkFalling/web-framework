@@ -5,6 +5,10 @@ const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
+    output: {
+        filename: "[name].[contenthash].js",
+        chunkFilename: '[name].chunk.[contenthash].js',
+    },
     plugins: [
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
