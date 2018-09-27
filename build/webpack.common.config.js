@@ -1,6 +1,8 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = {
     entry: ["./src/client/index.tsx"],

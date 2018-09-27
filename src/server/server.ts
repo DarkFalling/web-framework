@@ -1,5 +1,7 @@
 import * as express from "express"
 import { RequestHandlerParams } from "express-serve-static-core";
+import settings from "./settings";
+
 const app = express();
 
 export default class Server {
@@ -7,10 +9,14 @@ export default class Server {
     app.use(middlewares);
   }
 
+  public get Port(): number {
+    return settings.port;
+  }
+
   public start() {
     // Serve the files on port 3000.
-    app.listen(3000, function () {
-      console.log('App listening on port 3000!\n');
+    app.listen(this.Port, () => {
+      console.log(`App listening on port ${this.Port}!\n`);
     });
   }
 }
