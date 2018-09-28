@@ -17,3 +17,6 @@ packages/
 ## introduced in VS2015 Update 2 to replace sdf file
 *.VC.VC.opendb
 *.VC.db
+
+## Ignore enviroment file
+.env
