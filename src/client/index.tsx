@@ -11,7 +11,7 @@ import { WarningBanner } from "./components/warningBanner";
 import { Books, Book } from "./components/books";
 import { EssayForm } from "./components/essayForm";
 import { FilterableProductTable, Product } from ".//components/filterableProductTable";
-import { App } from "./components/app";
+import { App } from "./app";
 
 /* side effect node
 var sideEffectNode = document.createElement('div');

@@ -1,13 +1,13 @@
 import * as React from "react";
 import { CSSProperties } from "react";
-import { Books, Book } from "./books";
-import { Clock } from "./clock";
-import { Toggle } from "./toggle";
-import { LoginControl } from "./loginControl";
-import { WarningBanner } from "./warningBanner";
-import { EssayForm } from "./essayForm";
-import { Product, FilterableProductTable } from "./filterableProductTable";
-import "./app.scss";
+import { Books, Book } from "./components/books";
+import { Clock } from "./components/clock";
+import { Toggle } from "./components/toggle";
+import { LoginControl } from "./components/loginControl";
+import { WarningBanner } from "./components/warningBanner";
+import { EssayForm } from "./components/essayForm";
+import { Product, FilterableProductTable } from "./components/filterableProductTable";
+import { Gallery } from "./gallery/gallery";
 
 export class App extends React.Component {
     galleryItems: Array<JSX.Element>;
@@ -35,29 +35,5 @@ export class App extends React.Component {
 
     render() {
         return <Gallery items={this.galleryItems} />
-    }
-}
-
-class Gallery extends React.Component<{ items: Array<JSX.Element> }> {
-    render() {
-        return (
-            <div className="contaner-row-wrap">
-                {this.props.items.map((item, index) => <GalleryItem key={index}>{item}</GalleryItem>)}
-            </div>
-        );
-    }
-}
-
-class GalleryItem extends React.Component {
-    render() {
-        let s: CSSProperties = {
-            border: "1px solid red",
-        };
-
-        return (
-            <div style={s}>
-                {this.props.children}
-            </div>
-        );
     }
 }

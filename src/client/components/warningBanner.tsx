@@ -6,9 +6,8 @@ export class WarningBanner extends React.Component<{ warning?: string }, {}> {
         if (!this.props.warning) {
             return null;
         }
-        const style = { display: "inline-block" };
         return (
-            <span style={style} className="warning" >
+            <span className="warning-banner" >
                 {this.props.warning}
             </span>
         );
