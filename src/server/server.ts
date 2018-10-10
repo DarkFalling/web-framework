@@ -14,7 +14,6 @@ export default class Server {
   }
 
   public start() {
-    // Serve the files on port 3000.
     app.listen(this.Port, () => {
       console.log(`App listening on port ${this.Port}!\n`);
     });
