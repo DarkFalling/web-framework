@@ -13,7 +13,7 @@ export class Toggle extends React.Component<ToggleProps, ToggleState> {
             <button onClick={this.handleClick.bind(this)}>{this.state.toggle ? "ON" : "OFF"}</button>
         );
     }
-    handleClick(e: React.SyntheticEvent<MouseEvent>) {
+    handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         this.setState((preState, props) => {
             return {
                 toggle: !preState.toggle
