@@ -3,6 +3,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import "./reset.scss";
+import "./index.scss";
+
 import { Hello } from "./components/hello";
 import { Clock } from "./components/clock";
 import { Toggle } from "./components/toggle";
