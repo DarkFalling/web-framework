@@ -8,6 +8,7 @@ import { WarningBanner } from "./components/warningBanner";
 import { EssayForm } from "./components/essayForm";
 import { Product, FilterableProductTable } from "./components/filterableProductTable";
 import { Gallery } from "./gallery/gallery";
+import { CentralizeBlock } from "./centralizeBlock";
 
 export class App extends React.Component {
     galleryItems: Array<JSX.Element>;
@@ -34,6 +35,6 @@ export class App extends React.Component {
     }
 
     render() {
-        return <Gallery items={this.galleryItems} />
+        return <CentralizeBlock></CentralizeBlock>;
     }
 }
