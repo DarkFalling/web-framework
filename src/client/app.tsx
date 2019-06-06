@@ -8,12 +8,23 @@ import { WarningBanner } from "./components/warningBanner";
 import { EssayForm } from "./components/essayForm";
 import { Product, FilterableProductTable } from "./components/filterableProductTable";
 import { Gallery } from "./gallery/gallery";
-import { CentralizeBlock } from "./centralizeBlock";
+import AnimationStep from "./components/animationStep";
+import AnimationCubicBezier from "./components/animationCubicBezier";
+import { withGalleryItem } from "./gallery/galleryItem";
+import AnimationDirection from "./components/animationDirection";
+import GalleryItemModal from "./gallery/galleryItemModal";
+import AnimationFillMode from "./components/animationFillMode";
+import AnimationPlayState from "./components/animationPlayState";
+import Transition from "./components/transition";
+import Spinner from "./components/spinner";
 
-export class App extends React.Component {
+export class App extends React.Component<{}, { currentGalleryItem?: JSX.Element }> {
     galleryItems: Array<JSX.Element>;
+
     constructor(props: any) {
         super(props);
+
+
         const products: Array<Product> = [
             { category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
             { category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball" },
@@ -22,7 +33,7 @@ export class App extends React.Component {
             { category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
             { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" }
         ];
-
+        /*
         this.galleryItems = [
             <Clock />,
             <Toggle />,
@@ -31,10 +42,41 @@ export class App extends React.Component {
             <Books books={new Array<Book>({ id: 1, title: "Linux vs Windows" }, { id: 2, title: "Apple vs Google" })} />,
             <EssayForm />,
             <FilterableProductTable products={products} />,
+            <AnimationStep description="Animation with Steps" />,
+        ];
+        */
+        const BooksGalleryItem = withGalleryItem(Books);
+        const FilterableProductTableGalleryItem = withGalleryItem(FilterableProductTable);
+        const WarningBannerGalleryItem = withGalleryItem(WarningBanner);
+        this.galleryItems = [
+            this.getGalleryItem(Clock),
+            this.getGalleryItem(Toggle),
+            this.getGalleryItem(LoginControl),
+            <WarningBannerGalleryItem itemDesc="" warning="This is a warning." />,
+            this.getGalleryItem(EssayForm),
+            <BooksGalleryItem itemDesc="" books={new Array<Book>({ id: 1, title: "Linux vs Windows" }, { id: 2, title: "Apple vs Google" })} />,
+            <FilterableProductTableGalleryItem itemDesc="" products={products} />,
+            this.getGalleryItem(AnimationStep, "Animation with steps"),
+            this.getGalleryItem(AnimationCubicBezier, "Animation with Cubic Bezier"),
+            this.getGalleryItem(AnimationDirection, "Animation with Direction - alternate"),
+            this.getGalleryItem(AnimationFillMode, "Animation with Fill Mode"),
+            this.getGalleryItem(AnimationPlayState, "Animation with Play State"),
+            this.getGalleryItem(Transition, "Transition"),
+            this.getGalleryItem(Spinner, "Spinner"),
         ];
     }
 
+    getGalleryItem(galleryItemContent: React.ComponentType, description: string = ""): JSX.Element {
+        let GalleryItem = withGalleryItem(galleryItemContent);
+        return <GalleryItem itemDesc={description} />
+    }
+
+
+
     render() {
-        return <CentralizeBlock></CentralizeBlock>;
+        return (
+            <div>
+                <Gallery items={this.galleryItems} />
+            </div>);
     }
 }

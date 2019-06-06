@@ -1,0 +1,25 @@
+$block-width: 90px;
+$block-hight: $block-width;
+
+%block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $block-width;
+  height: $block-hight;
+  background: purple;
+  font-weight: bold;
+}
+
+//https://medium.com/@dtinth/declaring-a-css-animation-keyframes-directly-on-an-element-using-sass-f091a0a15dbd
+@mixin animation-keyframes {
+  $animation-number: 0 !default !global;
+  $animation-number: $animation-number + 1 !global;
+  $name: unquote("keyframe-#{$animation-number}");
+  animation-name: $name;
+  @at-root {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+}

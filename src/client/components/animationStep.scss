@@ -1,0 +1,15 @@
+@import "./common";
+
+.animation-step {
+  .block {
+    @extend %block;
+    &--animation {
+      animation: keyframe 2s steps(5) infinite;
+      @include animation-keyframes {
+        to {
+          transform: scale(1.2, 1.2);
+        }
+      }
+    }
+  }
+}

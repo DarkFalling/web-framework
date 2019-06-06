@@ -17,6 +17,7 @@ function BookItem(props: { bookName: string }) {
 
 export class Books extends React.Component<{ books: Array<Book> }, {}> {
     render() {
+        console.log("books", this.props.books);
         return (
             <ul>
                 {

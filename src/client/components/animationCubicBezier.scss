@@ -1,0 +1,23 @@
+@import "./common";
+
+.animation-cubic-bezier {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  align-self: stretch;
+  align-items: center;
+  .block {
+    @extend %block;
+    position: absolute;
+    left: 0;
+    &--animation {
+      animation: keyframe-animation-cubic-bezier 2s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+    }
+  }
+
+  @keyframes keyframe-animation-cubic-bezier {
+    to {
+      left: calc(100% - #{$block-width});
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "./common";
+
+.animation-direction {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  align-self: stretch;
+  align-items: center;
+  .block {
+    @extend %block;
+    position: absolute;
+    left: 0;
+    &--animation {
+      animation: keyframe-animation-direction 2s cubic-bezier(1, 1, 1, 1) infinite alternate;
+    }
+  }
+
+  @keyframes keyframe-animation-direction {
+    to {
+      left: calc(100% - #{$block-width});
+    }
+  }
+}

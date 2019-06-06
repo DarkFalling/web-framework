@@ -1,0 +1,30 @@
+@import "./common";
+
+.animation-fill-mode {
+  display: flex;
+  .block {
+    @extend %block;
+    &--animation-forwards {
+      animation: keyframe-animation-fill-mode 2s 2s forwards;
+    }
+    &--animation-backwards {
+      animation: keyframe-animation-fill-mode 2s 2s backwards;
+    }
+    &--animation-both {
+      animation: keyframe-animation-fill-mode 2s 2s both;
+    }
+  }
+
+  .block + .block {
+    margin-left: 5px;
+  }
+
+  @keyframes keyframe-animation-fill-mode {
+    from {
+      background-color: green;
+    }
+    to {
+      background: skyblue;
+    }
+  }
+}

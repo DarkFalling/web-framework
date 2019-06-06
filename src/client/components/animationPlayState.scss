@@ -1,0 +1,31 @@
+@import "./common";
+
+.animation-play-state {
+  .block {
+    @extend %block;
+    &--animation {
+      animation: keyframe-animation-play-state 2s infinite alternate running;
+    }
+    .running {
+      display: block;
+    }
+    .paused {
+      display: none;
+    }
+    &:hover {
+      animation-play-state: paused;
+      .running {
+        display: none;
+      }
+      .paused {
+        display: block;
+      }
+    }
+  }
+
+  @keyframes keyframe-animation-play-state {
+    to {
+      background: skyblue;
+    }
+  }
+}
