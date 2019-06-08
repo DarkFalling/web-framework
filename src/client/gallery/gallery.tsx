@@ -13,10 +13,20 @@ export class Gallery extends React.Component<{ items: Array<JSX.Element> }, { cu
     render() {
         return (
             <div className="gallery">
-                {
-                    this.props.items.map((item, index) => <div className={this.getClassName(item)} onDoubleClick={(event) => this.galleryItemDoubleClick(event, item)} onClick={() => this.galleryItemClick(item)} key={index}>{item}</div>)
-                }
+                <div className={this.getGalleryClassName()}>
+                    {
+                        this.props.items.map((item, index) => <div className="gallery-item-box" onDoubleClick={(event) => this.galleryItemDoubleClick(event, item)} onClick={() => this.galleryItemClick(item)} key={index}>{item}</div>)
+                    }
+                </div>
+                <div className={this.getGalleryOneClassName()} onDoubleClick={(event) => this.galleryItemDoubleClick(event, this.state.currentGalleryItem)}>
+                    <div className="gallery-one-box">
+                        {
+                            this.state.currentGalleryItem
+                        }
+                    </div>
+                </div>
             </div>
+
         );
     }
 
@@ -24,7 +34,7 @@ export class Gallery extends React.Component<{ items: Array<JSX.Element> }, { cu
         return;
     }
 
-    galleryItemDoubleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>, currentItem: JSX.Element) {
+    galleryItemDoubleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>, currentItem?: JSX.Element) {
         this.setState((preState) => {
             return {
                 currentGalleryItem: currentItem,
@@ -33,15 +43,19 @@ export class Gallery extends React.Component<{ items: Array<JSX.Element> }, { cu
         });
     }
 
-    getClassName(galleryItem: JSX.Element): string {
-        let className = "gallery-item-box";
+    getGalleryClassName(): string {
+        let className = "gallery-box";
         if (this.state.currentGalleryItemToggle) {
-            if (this.state.currentGalleryItem != galleryItem) {
-                className += " gallery-item-box--hide";
-            } else {
-                className += " gallery-item-box--scale";
-            }
+            className += " gallery-box--hide";
         }
         return className;
     }
+    getGalleryOneClassName() {
+        let className = "gallery-one";
+        if (this.state.currentGalleryItemToggle) {
+            className += " gallery-one--show";
+        }
+        return className;
+    }
+
 }
