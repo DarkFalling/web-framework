@@ -4,24 +4,16 @@
   display: flex;
   .block {
     @extend %block;
-    font-size: $block-width;
-    margin: 0 2.5px;
-    &--transition {
-      transition: order 2s linear;
+    background: initial;
+    fill: $element-color-primary;
+    &--animation {
+      animation: keyframe-spinner 3s linear infinite;
     }
   }
-  &:hover {
-    .block:last-child {
-      order: -1;
+
+  @keyframes keyframe-spinner {
+    to {
+      transform: rotate(1turn);
     }
-  }
-  .block:nth-child(1) {
-    order: 1;
-  }
-  .block:nth-child(2) {
-    order: 2;
-  }
-  .block:nth-child(3) {
-    order: 3;
   }
 }

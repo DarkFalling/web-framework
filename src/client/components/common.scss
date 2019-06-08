@@ -1,5 +1,7 @@
 $block-width: 90px;
 $block-hight: $block-width;
+$element-color-primary: purple;
+$element-color-secondary: skyblue;
 
 %block {
   display: flex;
@@ -7,7 +9,7 @@ $block-hight: $block-width;
   align-items: center;
   width: $block-width;
   height: $block-hight;
-  background: purple;
+  background: $element-color-primary;
   font-weight: bold;
 }
 

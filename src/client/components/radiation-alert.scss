@@ -1,0 +1,22 @@
+@import "./common";
+
+.radiation-alert {
+  display: flex;
+  .block {
+    @extend %block;
+    background: initial;
+    &--animation {
+      animation: keyframe-radiation-alert 1s linear infinite alternate;
+    }
+  }
+
+  @keyframes keyframe-radiation-alert {
+    from {
+      fill: green;
+    }
+    to {
+      fill: darkred;
+      transform: scale(1.1);
+    }
+  }
+}
