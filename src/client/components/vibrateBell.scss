@@ -7,19 +7,19 @@
     background: initial;
     fill: rgb(214, 207, 207);
     &--animation {
-      animation: keyframe-vibrate-bell .1s linear infinite;
+      animation: keyframe-vibrate-bell 0.1s linear infinite;
     }
   }
 
   @keyframes keyframe-vibrate-bell {
     25% {
-      transform: translateX(2px);
+      transform: rotate(5deg);
     }
     50% {
-      transform: translateX(0);
+      transform: rotate(0);
     }
     75% {
-      transform: translateX(-2px);
+      transform: rotate(-5deg);
     }
   }
 }
