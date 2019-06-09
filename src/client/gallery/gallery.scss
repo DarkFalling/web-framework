@@ -37,17 +37,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: keyframe-gallery-box-one-show 1s linear;
+      animation: keyframe-gallery-one-show 1s linear forwards, keyframe-gallery-one-scale 0.5s forwards;
     }
-    .gallery-one-box {
-      transform: scale(2);
-    }
-    @keyframes keyframe-gallery-box-one-show {
+
+    @keyframes keyframe-gallery-one-show {
       from {
         opacity: 0;
       }
       to {
         opacity: 1;
+      }
+    }
+    @keyframes keyframe-gallery-one-scale {
+      to {
+        transform: scale(2);
       }
     }
   }

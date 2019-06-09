@@ -19,11 +19,9 @@ export class Gallery extends React.Component<{ items: Array<JSX.Element> }, { cu
                     }
                 </div>
                 <div className={this.getGalleryOneClassName()} onDoubleClick={(event) => this.galleryItemDoubleClick(event, this.state.currentGalleryItem)}>
-                    <div className="gallery-one-box">
-                        {
-                            this.state.currentGalleryItem
-                        }
-                    </div>
+                    {
+                        this.state.currentGalleryItem
+                    }
                 </div>
             </div>
 
