@@ -1,9 +1,9 @@
 import * as React from "react";
-import "./transition.scss"
+import "./transitionOrder.scss"
 
-export default function Transition(props: any) {
+export default function TransitionOrder(props: any) {
     return (
-        <div className="transition">
+        <div className="transition-order">
             <div className="block block--transition">1</div>
             <div className="block block--transition">2</div>
             <div className="block block--transition">3</div>

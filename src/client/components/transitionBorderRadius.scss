@@ -1,0 +1,14 @@
+@import "./common";
+
+.transition-border-radius {
+  .block {
+    @extend %block;
+    font-size: $block-width;
+    &--transition {
+      transition: border-radius 1s;
+    }
+    &:hover {
+      border-radius: 50%;
+    }
+  }
+}

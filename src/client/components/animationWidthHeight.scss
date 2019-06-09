@@ -1,0 +1,21 @@
+@import "./common";
+
+.animation-width-height {
+  .block {
+    @extend %block;
+    &--animation {
+      animation: keyframe-animation-height-width 2s;
+    }
+  }
+
+  @keyframes keyframe-animation-height-width {
+    from {
+      width: 100px;
+      height: 100px;
+    }
+    to {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

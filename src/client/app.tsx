@@ -15,10 +15,12 @@ import AnimationDirection from "./components/animationDirection";
 import GalleryItemModal from "./gallery/galleryItemModal";
 import AnimationFillMode from "./components/animationFillMode";
 import AnimationPlayState from "./components/animationPlayState";
-import Transition from "./components/transition";
+import TransitionOrder from "./components/transitionOrder";
 import Spinner from "./components/spinner";
 import RadiationAlert from "./components/radiation-alert";
 import VibrateBell from "./components/VibrateBell";
+import AnimationWidthHeight from "./components/animationWidthHeight";
+import TransitionBorderRadius from "./components/transitionBorderRadius";
 
 export class App extends React.Component<{}, { currentGalleryItem?: JSX.Element }> {
     galleryItems: Array<JSX.Element>;
@@ -60,12 +62,14 @@ export class App extends React.Component<{}, { currentGalleryItem?: JSX.Element 
             <BooksGalleryItem itemDesc="" books={new Array<Book>({ id: 1, title: "Linux vs Windows" }, { id: 2, title: "Apple vs Google" })} />,
             <FilterableProductTableGalleryItem itemDesc="" products={products} />,
             */
+            this.getGalleryItem(AnimationWidthHeight, "Animation with width height"),
             this.getGalleryItem(AnimationStep, "Animation with steps"),
             this.getGalleryItem(AnimationCubicBezier, "Animation with Cubic Bezier"),
             this.getGalleryItem(AnimationDirection, "Animation with Direction - Alternate"),
             this.getGalleryItem(AnimationFillMode, "Animation with Fill Mode"),
             this.getGalleryItem(AnimationPlayState, "Animation with Play State"),
-            this.getGalleryItem(Transition, "Transition - Order"),
+            this.getGalleryItem(TransitionBorderRadius, "Transition - Border Radius"),
+            this.getGalleryItem(TransitionOrder, "Transition - Order"),
             this.getGalleryItem(Spinner, "Spinner"),
             this.getGalleryItem(RadiationAlert, "Radiation Alert"),
             this.getGalleryItem(VibrateBell, "Vibrate Bell"),
